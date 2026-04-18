@@ -1,0 +1,16 @@
+def isMaxHeap(arr, n):  
+    def HeapifyDown(arr, index):
+        largest = index
+        lchild = 2 * index + 1
+        rchild = 2 * index + 2      
+        if (lchild < n and arr[lchild] > arr[largest]):
+            return False
+        if (rchild < n and arr[rchild] > arr[largest]):
+            return False       
+        return True   # important 
+    for index in range(0, n // 2):
+        if (HeapifyDown(arr, index) == False):
+            return False 
+    return True
+arr = [7,6,5,4,1,4,0,3,2]
+print(isMaxHeap(arr, len(arr)))
