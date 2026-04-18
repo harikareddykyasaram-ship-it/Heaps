@@ -1,0 +1,16 @@
+def heapifyDown(arr,ind):
+        largest=ind
+        lchild=2*ind+1
+        rchild=2*ind+2
+        if(lchild<n and arr[lchild]>arr[largest]):
+            largest=lchild
+        if(rchild<n and arr[rchild]>arr[largest]):
+            largest=rchild
+        if(ind!=largest):
+            arr[ind],arr[largest]=arr[largest],arr[ind]
+            heapifyDown(arr,largest)
+arr=[0,7,6,15,10,11,1,3]
+n=len(arr)
+for ind in range(n//2 -1, -1, -1):
+    heapifyDown(arr,ind)
+print(arr)
